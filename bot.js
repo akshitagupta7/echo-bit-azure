@@ -11,7 +11,7 @@ class EchoBot extends ActivityHandler {
         this.onMessage(async (context, next) => {
             await context.sendActivity(`You said '${ context.activity.text }'`);
             await context.sendActivity(context.activity.text.split('').reverse().join('')); //reverses the input text
-            let apiKey = '*****************************';
+            let apiKey = 'eba58ae1bbdbe2e6e5e7566a7e39436f';
             let city = context.activity.text;
             let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 
