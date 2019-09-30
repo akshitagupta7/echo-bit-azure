@@ -11,15 +11,14 @@ class EchoBot extends ActivityHandler {
         this.onMessage(async (context, next) => {
             await context.sendActivity(`You said '${ context.activity.text }'`);
             await context.sendActivity(context.activity.text.split('').reverse().join('')); //reverses the input text
-        var url="api.openweathermap.org/data/2.5/weather?q="+context.activity.text;
+            let apiKey = '*****************************';
+            let city = context.activity.text;
+            let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 
         request(url, function (err, response, body) {
-         if(err){
-            console.log('error:', error);
-            } else {
-        console.log('body:', body);
-        }
-        });
+            let weather=JSON.parse(body);
+           await context.sendActivity(weather.main.temp);
+        }); 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
