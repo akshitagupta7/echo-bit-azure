@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 const { ActivityHandler } = require('botbuilder');
-const { ActivityHandler } = require('request');
+//const { ActivityHandler } = require('request');
 
 class EchoBot extends ActivityHandler {
     constructor() {
